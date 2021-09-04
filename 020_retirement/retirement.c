@@ -14,7 +14,7 @@ void helpprint(int months,
                double rate,
                double contribution) {
   for (int i = 1; i <= months; i++) {
-    printf("Age %3d month %2d you have $%.21f\n", startAge / 12, startAge % 12, initial);
+    printf("Age %3d month %2d you have $%.2f\n", startAge / 12, startAge % 12, initial);
     initial += initial * rate / 12 + contribution;
     startAge += 1;
   }
