@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct _retire_info {
+struct _retire_info {
   int months;
   double contribution;
   double rate_of_return;
-} retire_info;
+};
+typedef struct _retire_info retire_info;
 
 void helpprint(int months,
                int startAge,
@@ -23,6 +24,9 @@ void retirement(int startAge, double initial, retire_info working, retire_info r
   helpprint(
       working.months, startAge, initial, working.rate_of_return, working.contribution);
   startAge += working.months;
+  for (int i = 1; i <= working.months; i++) {
+    initial += initial * working.rate_of_return / 12 + working.contribution;
+  }
   helpprint(
       retired.months, startAge, initial, retired.rate_of_return, retired.contribution);
 }
