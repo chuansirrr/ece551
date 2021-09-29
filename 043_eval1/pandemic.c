@@ -74,10 +74,10 @@ country_t parseLine(char * line) {
 
 void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
   //WRITE ME
-  if (n_days < 7) {
+  /*if (n_days < 7) {
     fprintf(stderr, "days data too small(<7)\n");
     exit(EXIT_FAILURE);
-  }
+    }*/
   if (data == NULL) {
     fprintf(stderr, "no data\n");
     exit(EXIT_FAILURE);
@@ -95,6 +95,7 @@ void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
 void calcCumulative(unsigned * data, size_t n_days, uint64_t pop, double * cum) {
   //WRITE ME
   unsigned sum = 0;
+
   for (int i = 0; i < n_days; i++) {
     sum = sum + data[i];
     cum[i] = (sum / (double)pop) * 100000.0;
