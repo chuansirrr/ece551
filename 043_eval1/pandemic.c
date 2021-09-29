@@ -59,9 +59,7 @@ country_t parseLine(char * line) {
   }
 
   char * line_cp = line;
-
-  while (*line != '\0') {
-    printf("%c", *line);
+  while (*line != '\n' && *line != '\0') {
     if (!isdigit(*line)) {
       fprintf(stderr, "number is not in right format\n");
       exit(EXIT_FAILURE);
