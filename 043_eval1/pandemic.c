@@ -16,12 +16,6 @@ country_t parseLine(char * line) {
     exit(EXIT_FAILURE);
   }
 
-  //if the first character is comma, error happens.
-  /*  if (*line == ',') {
-   *fprintf(stderr, "The first charater should not be the comma!\n");
-   *exit(EXIT_FAILURE);
-   }*/
-
   //if the string does not contain a comma, error happens.
   if (strchr(line, ',') == NULL) {
     fprintf(stderr, "The string has no comma, illegal!\n");
@@ -30,10 +24,9 @@ country_t parseLine(char * line) {
 
   //start putting things from string into ans.
   //the string before comma is the Country name.
-  //name_so_far
-  size_t name_so_far = 0;
+  size_t name_so_far = 0;  //name_so_far is the nth character of countri's name.
   while (*line != ',') {
-    //if the country name is too long, more than 62 character, error happens.
+    //if the country name is too long, more than 63 character, error happens.
     if (name_so_far >= 63) {
       fprintf(stderr, "Country name too long!\n");
       exit(EXIT_FAILURE);
@@ -43,9 +36,9 @@ country_t parseLine(char * line) {
     name_so_far += 1;
     line += 1;
   }
-  ans.name[name_so_far] = '\0';
+  ans.name[name_so_far] = '\0';  //add'\0' to change array to a string.
 
-  line += 1;  //point to the next position of comma.
+  line += 1;  //point to the next position of the first comma.
 
   //no population, error happens
   if (*line == '\0') {
