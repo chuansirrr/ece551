@@ -51,12 +51,14 @@ country_t parseLine(char * line) {
     exit(EXIT_FAILURE);
   }
 
-  char * line_cp = line;
+  char * line_cp = line;  //use line_cp to flag the first number.
+  //if there is no number, error happens.
   if (*line == '\n' || *line == '\0') {
     fprintf(stderr, "no number\n");
     exit(EXIT_FAILURE);
   }
-  while (*line != '\n' && *line != '\0') {
+  //if the number part comtains other character except number, error happens.
+  while (*line != '\n' && *line != '\0') {  //'\n'or'\0'is the end of the number.
     if (!isdigit(*line)) {
       fprintf(stderr, "number is not in right format\n");
       exit(EXIT_FAILURE);
@@ -71,13 +73,14 @@ country_t parseLine(char * line) {
 
 void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
   //WRITE ME
-  /*if (n_days < 7) {
-    fprintf(stderr, "days data too small(<7)\n");
-    exit(EXIT_FAILURE);
-    }*/
+
   if (data == NULL) {
     fprintf(stderr, "no data\n");
     exit(EXIT_FAILURE);
+  }
+
+  if (n_days < 7) {
+    return;
   }
 
   for (int i = 0; i < n_days - 6; i++) {
@@ -106,6 +109,10 @@ void printCountryWithMax(country_t * countries,
   char * max_country = countries[0].name;
   unsigned max_numcase = data[0][0];
 
+  if (n_countries == 0 || n_days == 0) {
+    return;
+  }
+  //find the max of data and the corresponding country
   int max_j = 0;
   for (int j = 0; j < n_countries; j++) {
     for (int i = 0; i < n_days; i++) {
@@ -116,7 +123,7 @@ void printCountryWithMax(country_t * countries,
       }
     }
   }
-
+  //find if there is another country that has the same max data
   for (int m = max_j + 1; m < n_countries; m++) {
     for (int n = 0; n < n_days; n++) {
       if (data[m][n] == max_numcase) {
