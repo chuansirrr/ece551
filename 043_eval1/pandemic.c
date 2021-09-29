@@ -17,10 +17,10 @@ country_t parseLine(char * line) {
   }
 
   //if the first character is comma, error happens.
-  if (*line == ',') {
-    fprintf(stderr, "The first charater should not be the comma!\n");
-    exit(EXIT_FAILURE);
-  }
+  /*  if (*line == ',') {
+   *fprintf(stderr, "The first charater should not be the comma!\n");
+   *exit(EXIT_FAILURE);
+   }*/
 
   //if the string does not contain a comma, error happens.
   if (strchr(line, ',') == NULL) {
