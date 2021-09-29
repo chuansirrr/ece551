@@ -3,4 +3,5 @@ printCountries population.csv
 printDailyMax population.csv daily_small.csv
 
 #error
-printCountries testCoun.csv
+printCountries testCoun1.csv
+printCountries testCoun2.csv
