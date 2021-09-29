@@ -1,0 +1,24 @@
+Grading at 09/29/2021:20:36:06.040264
+For commit ID 9fde42a7c3e59552dc1bca5082247bad0dbeec41
+Grading at Wed Sep 29 16:36:01 EDT 2021
+Attempting to compile encrypt.c
+testcase1:
+valgrind reported memory errors
+#################################################
+testcase2:
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
+#################################################
+testcase3:
+valgrind reported memory errors
+#################################################
+testcase4:
+valgrind reported memory errors
+#################################################
+testcase5:
+valgrind reported memory errors
+#################################################
+testcase6:
+valgrind reported memory errors
+
+Overall Grade: F
