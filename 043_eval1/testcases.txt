@@ -5,3 +5,9 @@ printDailyMax population.csv daily_small.csv
 #error
 printCountries testCoun1.csv
 printCountries testCoun2.csv
+printCountries testCoun3.csv
+printCountries testcoun4.csv
+printCountries testcoun5.csv
+printCountries testcoun6.csv
+printCountries testcoun7.csv
+printCountries testcoun8.csv
