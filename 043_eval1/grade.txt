@@ -1,6 +1,6 @@
-Grading at 09/29/2021:13:41:20.346810
-For commit ID 6ad892f42ab9caa35d20777385d7d36619ecad5e
-Grading at Wed Sep 29 09:41:18 EDT 2021
+Grading at 09/29/2021:13:51:33.866688
+For commit ID b17b5a797545fce5cf4bce7ff7febfd099bbcf42
+Grading at Wed Sep 29 09:51:28 EDT 2021
 Running your test cases
 
 Compiling printCountries
@@ -26,6 +26,24 @@ Our printCountries does not consider this an error case
 +-----------------------------------------------------------------------+
 Test case printCountries testCoun2.csv
 Our printCountries does not consider this an error case
++-----------------------------------------------------------------------+
+Test case printCountries testCoun3.csv
+Our printCountries does not consider this an error case
++-----------------------------------------------------------------------+
+Test case printCountries testcoun4.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries testcoun5.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries testcoun6.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries testcoun7.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries testcoun8.csv
+Your program successfully indicated a failure case
 
 You have FAILED one or more of your test cases
 Keep debugging
