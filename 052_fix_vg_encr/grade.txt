@@ -1,24 +1,30 @@
-Grading at 09/29/2021:20:38:47.965704
-For commit ID 95732fce539610f70363fde009ee3206056031bf
-Grading at Wed Sep 29 16:38:43 EDT 2021
+Grading at 09/29/2021:20:42:26.369649
+For commit ID 5f6e0c1fecadaa99baff765aa42bffd94d97bd0d
+Grading at Wed Sep 29 16:42:18 EDT 2021
 Attempting to compile encrypt.c
 testcase1:
-valgrind reported memory errors
+your output was correct
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
 #################################################
 testcase2:
   - Valgrind was clean (no errors, no memory leaks)
 valgrind was clean
 #################################################
 testcase3:
-valgrind reported memory errors
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
 #################################################
 testcase4:
-valgrind reported memory errors
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
 #################################################
 testcase5:
-valgrind reported memory errors
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
 #################################################
 testcase6:
-valgrind reported memory errors
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
 
-Overall Grade: F
+Overall Grade: A
