@@ -6,7 +6,6 @@ printCountries testCoun1.csv
 printCumulative population.csv daily_small.csv
 printRunningAvg population.csv daily_small.csv
 printCountries testCoun11.csv
-printCountries testCoun12.csv
 
 #error
 printCountries testCoun2.csv
@@ -17,3 +16,4 @@ printCountries testcoun7.csv
 printCountries testcoun8.csv
 printCountries testcoun9.csv
 printCountries testcoun10.csv
+printCountries testCoun12.csv
