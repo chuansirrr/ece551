@@ -1,6 +1,6 @@
-Grading at 09/29/2021:14:30:24.598681
-For commit ID 9ac7d2b82081417d203f2a9bb5624683ad6296ee
-Grading at Wed Sep 29 10:30:19 EDT 2021
+Grading at 09/29/2021:14:54:20.658833
+For commit ID b51f6c8566345bf45d0044c18efd26d0711ab59b
+Grading at Wed Sep 29 10:54:14 EDT 2021
 Running your test cases
 
 Compiling printCountries
@@ -25,7 +25,7 @@ Test case printCountries testCoun1.csv
 Our printCountries does not consider this an error case
 +-----------------------------------------------------------------------+
 Test case printCountries testCoun2.csv
-Our printCountries does not consider this an error case
+Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
 Test case printCountries testCoun3.csv
 Our printCountries does not consider this an error case
