@@ -57,18 +57,18 @@ country_t parseLine(char * line) {
     fprintf(stderr, "too many commas!\n");
     exit(EXIT_FAILURE);
   }
-  ans.population = atoi(line);
-  //char * line_cp = line;
 
-  /* while (*line != '\0') {
+  char * line_cp = line;
+
+  while (*line != '\0') {
     if (!isdigit(*line)) {
       fprintf(stderr, "number is not in right format\n");
       exit(EXIT_FAILURE);
     }
     line += 1;
-    }*/
+  }
 
-  //ans.population = atoi(line);
+  ans.population = atoi(line_cp);
 
   return ans;
 }
