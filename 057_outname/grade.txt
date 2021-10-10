@@ -1,0 +1,21 @@
+Grading at 10/10/2021:00:20:12.536823
+For commit ID 47f4f94aa30d50bacb2b037caf811f9f39ea3e33
+Grading at Sat Oct  9 20:20:08 EDT 2021
+Attempting to compile:
+#################################################
+testcase1:
+Your output is correct
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
+#################################################
+testcase2:
+Your output is correct
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
+#################################################
+testcase3:
+Your output is correct
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
+
+Overall Grade: A
