@@ -18,9 +18,9 @@ counts_t * countFile(const char * filename, kvarray_t * kvPairs) {
 
   char * curr = NULL;
   char * countStr = NULL;
-  size_t linecap;
+  size_t line;
 
-  while (getline(&curr, &linecap, f) >= 0) {
+  while (getline(&curr, &line, f) >= 0) {
     if (strchr(curr, '\n') != NULL) {
       *strchr(curr, '\n') = '\0';
     }
