@@ -20,6 +20,12 @@ void ParseAndPrintofStep1(char * str1, size_t len, catarray_t * cats) {
   char * place1 = strchr(str1, '_');
   size_t curri = 0;
 
+  //////////used words////////////
+
+  size_t CountUsedNum = 0;
+  char ** StoreUsedNum = NULL;
+
+  //////////used words////////////
   while ((*place1 != '\0')) {
     char * place2 = strchr(place1 + 1, '_');
     place2++;
@@ -39,17 +45,55 @@ void ParseAndPrintofStep1(char * str1, size_t len, catarray_t * cats) {
       getcategi++;
     }
     getcateg[getcategi] = '\0';
-    const char * cat1 = chooseWord(getcateg, cats);
+
+    CountUsedNum++;
+
     char cat[20];  //number of characters of word + 1('\0')
     size_t countcat1 = 0;
-    while (*(cat1 + countcat1) != '\0') {
-      cat[countcat1] = *(cat1 + countcat1);
-      countcat1++;
-    }
-    cat[countcat1] = '\0';  //is the word choosen
-
-    /*******************************/
     char * catcp = cat;
+
+    if (!atoi(getcateg)) {
+      const char * cat1 = chooseWord(getcateg, cats);
+      //   char cat[20];  //number of characters of word + 1('\0')
+      //size_t countcat1 = 0;
+      while (*(cat1 + countcat1) != '\0') {
+        cat[countcat1] = *(cat1 + countcat1);
+        countcat1++;
+      }
+      cat[countcat1] = '\0';  //is the word choosen
+
+      /*******************************/
+      //char * catcp = cat;
+
+      /////////////////store used words //////////////////
+      //CountUsedNum++;
+      StoreUsedNum = realloc(StoreUsedNum, CountUsedNum * sizeof(*StoreUsedNum));
+      StoreUsedNum[CountUsedNum - 1] = malloc(15 * sizeof(**StoreUsedNum));
+      for (size_t s = 0; s <= countcat1; s++) {
+        *(StoreUsedNum[CountUsedNum - 1] + s) = cat[s];
+      }
+      size_t backwordnum = 0;
+      backwordnum = atoi(StoreUsedNum[CountUsedNum - 1]);
+      while (backwordnum) {
+        catcp = StoreUsedNum[CountUsedNum - 1 - backwordnum];
+        backwordnum = atoi(StoreUsedNum[CountUsedNum - 1 - backwordnum]);
+      }
+    }
+    else {
+      StoreUsedNum = realloc(StoreUsedNum, CountUsedNum * sizeof(*StoreUsedNum));
+      StoreUsedNum[CountUsedNum - 1] = malloc(15 * sizeof(**StoreUsedNum));
+      for (size_t s = 0; s <= getcategi; s++) {
+        *(StoreUsedNum[CountUsedNum - 1] + s) = getcateg[s];
+      }
+      size_t backwordnum = 0;
+      backwordnum = atoi(StoreUsedNum[CountUsedNum - 1]);
+      while (backwordnum) {
+        catcp = StoreUsedNum[CountUsedNum - 1 - backwordnum];
+        backwordnum = atoi(StoreUsedNum[CountUsedNum - 1 - backwordnum]);
+      }
+    }
+
+    /////////////////store used words //////////////////
     while (*catcp != '\0') {
       str[curri] = *catcp;
       catcp++;
