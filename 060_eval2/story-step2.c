@@ -15,16 +15,22 @@ int main(int argc, char ** argv) {
     return EXIT_FAILURE;
   }
 
+  catarray_t * cats = malloc(sizeof(*cats));
+  cats->arr = NULL;
+  cats->n = 0;
+
   ssize_t len = 0;
   char * curr = NULL;
-  size_t sz;
+  size_t sz = 0;
   while ((len = getline(&curr, &sz, f)) >= 0) {
-    ParseAndPrintofStep1(curr, len, NULL);
+    ReadAndStore(curr, cats);
   }
+  //getline(&curr, &sz, f);
+  //ReadAndStore(curr, cats);
+  //getline(&curr, &sz, f);
+  //ReadAndStore(curr, cats);
+  printWords(cats);
+
   free(curr);
-  if (fclose(f) != 0) {
-    perror("Failed to close the input file!");
-    return EXIT_FAILURE;
-  }
   return EXIT_SUCCESS;
 }

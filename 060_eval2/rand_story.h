@@ -7,6 +7,7 @@
 
 #include "provided.h"
 //any functions you want your main to use
-void ParseAndPrintofStep1(char * str1, size_t len);
+void ParseAndPrintofStep1(char * str1, size_t len, catarray_t * cats);
 
+void ReadAndStore(char * str, catarray_t * cats);
 #endif
