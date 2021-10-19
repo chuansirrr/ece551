@@ -5,6 +5,7 @@
 #include <string.h>
 
 void ParseAndPrintofStep1(char * str1, catarray_t * cats, size_t flag_n) {
+  //check whether the input file has even num of '_'
   char * countof_num = str1;
   size_t countof_numnum = 0;
   while (*countof_num != '\0') {
@@ -19,29 +20,23 @@ void ParseAndPrintofStep1(char * str1, catarray_t * cats, size_t flag_n) {
   }
 
   char * str1cp = str1;
-  //copy returned word
-
-  char str[100];
+  char str[100];  //store the input line for futher use
   char * place1 = strchr(str1, '_');
   size_t curri = 0;
 
-  //////////used words////////////
-
   size_t CountUsedNum = 0;
   char ** StoreUsedNum = NULL;
-  ////////////use to free///////////////
 
-  //////////used words////////////
+  // in this while, parse,store and print one line of input file
   while ((*place1 != '\0')) {
     char * place2 = strchr(place1 + 1, '_');
-    place2++;
-
+    place2++;  //find the first character after category name needed to be change
+    // in this while, the info before first '_' will be stored
     while (str1cp != place1) {
       str[curri] = *str1cp;
       str1cp++;
       curri++;
     }
-    /*******************************/
 
     char getcateg[15];
     size_t getcategi = 0;
@@ -50,7 +45,7 @@ void ParseAndPrintofStep1(char * str1, catarray_t * cats, size_t flag_n) {
       getcateg[getcategi] = *(place1cp + 1 + getcategi);
       getcategi++;
     }
-    getcateg[getcategi] = '\0';
+    getcateg[getcategi] = '\0';  //store category name
 
     CountUsedNum++;
 
@@ -66,7 +61,8 @@ void ParseAndPrintofStep1(char * str1, catarray_t * cats, size_t flag_n) {
         countcat1++;
       }
       cat[countcat1] = '\0';  //is the word choosen
-      /**************not using repeated words*****************/
+
+      //realize the unreusing of words
       size_t NumOfCateg = 0;
       size_t NumOfWords = 1;
       NumOfWords--;
@@ -100,22 +96,10 @@ void ParseAndPrintofStep1(char * str1, catarray_t * cats, size_t flag_n) {
         cats->arr[NumOfCateg].n_words--;
       }
 
-      /**************not using repeated words*****************/
-      //   char cat[20];  //number of characters of word + 1('\0')
-      //size_t countcat1 = 0;
-
-      /*while (*(cat1 + countcat1) != '\0') {
-        cat[countcat1] = *(cat1 + countcat1);
-        countcat1++;
-      }
-      cat[countcat1] = '\0';  //is the word choosen
-      */
-
-      /*******************************/
-      //char * catcp = cat;
+      /**************not using repeated words end *****************/
 
       /////////////////store used words //////////////////
-      //CountUsedNum++;
+
       StoreUsedNum = realloc(StoreUsedNum, CountUsedNum * sizeof(*StoreUsedNum));
       StoreUsedNum[CountUsedNum - 1] = malloc(15 * sizeof(**StoreUsedNum));
       for (size_t s = 0; s <= countcat1; s++) {
@@ -142,7 +126,8 @@ void ParseAndPrintofStep1(char * str1, catarray_t * cats, size_t flag_n) {
       }
     }
 
-    /////////////////store used words //////////////////
+    /////////////////store used words end//////////////////
+    //store the word into the sentence to be printed
     while (*catcp != '\0') {
       str[curri] = *catcp;
       catcp++;
@@ -167,6 +152,7 @@ void ParseAndPrintofStep1(char * str1, catarray_t * cats, size_t flag_n) {
 }
 
 void ReadAndStore(char * str, catarray_t * cats) {
+  //check whether exists :(colon)
   if (strchr(str, ':') == NULL) {
     fprintf(stderr, "input file has no colon");
     exit(EXIT_FAILURE);
@@ -190,6 +176,7 @@ void ReadAndStore(char * str, catarray_t * cats) {
   }
   word[wordi] = '\0';
 
+  //for the first line of input file
   size_t flag_all_diff = cats->n;
   if (flag_all_diff == 0) {
     cats->n++;
@@ -213,6 +200,7 @@ void ReadAndStore(char * str, catarray_t * cats) {
     }
   }
   else {
+    //for the second or later lines
     size_t flagcatsn = cats->n;
     for (size_t k = 0; k < flagcatsn; k++) {
       if (strcmp(categ, cats->arr[k].name)) {
@@ -243,7 +231,7 @@ void ReadAndStore(char * str, catarray_t * cats) {
               word[j];
         }
       }
-
+      //if the words are same
       if (!strcmp(categ, cats->arr[k].name)) {
         cats->arr[k].n_words++;
         cats->arr[k].words = realloc(
