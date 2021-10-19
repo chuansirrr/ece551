@@ -4,18 +4,23 @@
 #include <stdlib.h>
 #include <string.h>
 
-void ParseAndPrintofStep1(char * str1, size_t len, catarray_t * cats) {
+void ParseAndPrintofStep1(char * str1, catarray_t * cats, size_t flag_n) {
+  char * countof_num = str1;
+  size_t countof_numnum = 0;
+  while (*countof_num != '\0') {
+    if (*countof_num == '_') {
+      countof_numnum++;
+    }
+    countof_num++;
+  }
+  if (countof_numnum % 2 != 0) {
+    fprintf(stderr, "'_' is not even");
+    exit(EXIT_FAILURE);
+  }
+
   char * str1cp = str1;
   //copy returned word
-  /*  const char * cat1 = chooseWord("verb", cats);
-  char cat[20];  //number of characters of word + 1('\0')
-  size_t countcat1 = 0;
-  while (*(cat1 + countcat1) != '\0') {
-    cat[countcat1] = *(cat1 + countcat1);
-    countcat1++;
-  }
-  cat[countcat1] = '\0';
-  */
+
   char str[100];
   char * place1 = strchr(str1, '_');
   size_t curri = 0;
@@ -24,6 +29,7 @@ void ParseAndPrintofStep1(char * str1, size_t len, catarray_t * cats) {
 
   size_t CountUsedNum = 0;
   char ** StoreUsedNum = NULL;
+  ////////////use to free///////////////
 
   //////////used words////////////
   while ((*place1 != '\0')) {
@@ -54,13 +60,56 @@ void ParseAndPrintofStep1(char * str1, size_t len, catarray_t * cats) {
 
     if (!atoi(getcateg)) {
       const char * cat1 = chooseWord(getcateg, cats);
-      //   char cat[20];  //number of characters of word + 1('\0')
-      //size_t countcat1 = 0;
+
       while (*(cat1 + countcat1) != '\0') {
         cat[countcat1] = *(cat1 + countcat1);
         countcat1++;
       }
       cat[countcat1] = '\0';  //is the word choosen
+      /**************not using repeated words*****************/
+      size_t NumOfCateg = 0;
+      size_t NumOfWords = 1;
+      NumOfWords--;
+      if (cats != NULL) {
+        for (size_t i = 0; i < cats->n; i++) {
+          if (!strcmp(cats->arr[i].name, getcateg)) {
+            NumOfCateg = i;
+          }
+        }
+        for (size_t i = 0; i < cats->arr[NumOfCateg].n_words; i++) {
+          if (!strcmp(cats->arr[NumOfCateg].words[i], cat1)) {
+            NumOfWords = i;
+          }
+        }
+      }
+
+      if (flag_n == 1) {
+        char * miduseChange = NULL;
+        miduseChange = cats->arr[NumOfCateg].words[NumOfWords];
+        cats->arr[NumOfCateg].words[NumOfWords] =
+            cats->arr[NumOfCateg].words[cats->arr[NumOfCateg].n_words - 1];
+        cats->arr[NumOfCateg].words[cats->arr[NumOfCateg].n_words - 1] = NULL;
+        //free(cats->arr[NumOfCateg].words[cats->arr[NumOfCateg].n_words - 1]);
+        free(miduseChange);
+
+        if (cats->arr[NumOfCateg].n_words != 1) {
+          cats->arr[NumOfCateg].words = realloc(
+              cats->arr[NumOfCateg].words,
+              (cats->arr[NumOfCateg].n_words - 1) * sizeof(*cats->arr[NumOfCateg].words));
+        }
+        cats->arr[NumOfCateg].n_words--;
+      }
+
+      /**************not using repeated words*****************/
+      //   char cat[20];  //number of characters of word + 1('\0')
+      //size_t countcat1 = 0;
+
+      /*while (*(cat1 + countcat1) != '\0') {
+        cat[countcat1] = *(cat1 + countcat1);
+        countcat1++;
+      }
+      cat[countcat1] = '\0';  //is the word choosen
+      */
 
       /*******************************/
       //char * catcp = cat;
@@ -110,6 +159,11 @@ void ParseAndPrintofStep1(char * str1, size_t len, catarray_t * cats) {
   }
   str[curri] = '\0';
   printf("%s", str);
+  //////////*free space*/////////////
+  for (size_t i = 0; i < CountUsedNum; i++) {
+    free(StoreUsedNum[i]);
+  }
+  free(StoreUsedNum);
 }
 
 void ReadAndStore(char * str, catarray_t * cats) {

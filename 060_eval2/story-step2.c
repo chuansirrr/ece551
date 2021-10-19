@@ -25,12 +25,25 @@ int main(int argc, char ** argv) {
   while ((len = getline(&curr, &sz, f)) >= 0) {
     ReadAndStore(curr, cats);
   }
-  //getline(&curr, &sz, f);
-  //ReadAndStore(curr, cats);
-  //getline(&curr, &sz, f);
-  //ReadAndStore(curr, cats);
+
   printWords(cats);
 
   free(curr);
+
+  for (size_t i = 0; i < cats->n; i++) {
+    for (size_t j = 0; j < cats->arr[i].n_words; j++) {
+      free(cats->arr[i].words[j]);
+    }
+  }
+  for (size_t i = 0; i < cats->n; i++) {
+    free(cats->arr[i].name);
+    free(cats->arr[i].words);
+  }
+  free(cats->arr);
+  free(cats);
+  if (fclose(f) != 0) {
+    perror("Could not close file");
+    return EXIT_FAILURE;
+  }
   return EXIT_SUCCESS;
 }

@@ -15,11 +15,11 @@ int main(int argc, char ** argv) {
     return EXIT_FAILURE;
   }
 
-  ssize_t len = 0;
   char * curr = NULL;
   size_t sz;
-  while ((len = getline(&curr, &sz, f)) >= 0) {
-    ParseAndPrintofStep1(curr, len, NULL);
+  size_t flag_n = 0;
+  while ((getline(&curr, &sz, f)) >= 0) {
+    ParseAndPrintofStep1(curr, NULL, flag_n);
   }
   free(curr);
   if (fclose(f) != 0) {

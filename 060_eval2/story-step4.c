@@ -5,20 +5,39 @@
 #include "rand_story.h"
 
 int main(int argc, char ** argv) {
-  if (argc != 3) {
+  if ((argc != 3) && (argc != 4)) {
     fprintf(stderr, "Usage: encrypt key inputFileName\n");
     return EXIT_FAILURE;
   }
-  FILE * f_words = fopen(argv[1], "r");
-  if (f_words == NULL) {
-    perror("Could not open file");
-    return EXIT_FAILURE;
-  }
+  FILE * f_words;
+  FILE * f_story;
+  size_t flag_n = 0;
+  if (argc == 3) {
+    f_words = fopen(argv[1], "r");
+    if (f_words == NULL) {
+      perror("Could not open file");
+      return EXIT_FAILURE;
+    }
 
-  FILE * f_story = fopen(argv[2], "r");
-  if (f_story == NULL) {
-    perror("Could not open file");
-    return EXIT_FAILURE;
+    f_story = fopen(argv[2], "r");
+    if (f_story == NULL) {
+      perror("Could not open file");
+      return EXIT_FAILURE;
+    }
+  }
+  else {
+    flag_n = 1;
+    f_words = fopen(argv[2], "r");
+    if (f_words == NULL) {
+      perror("Could not open file");
+      return EXIT_FAILURE;
+    }
+
+    f_story = fopen(argv[3], "r");
+    if (f_story == NULL) {
+      perror("Could not open file");
+      return EXIT_FAILURE;
+    }
   }
 
   catarray_t * cats = malloc(sizeof(*cats));
@@ -37,7 +56,6 @@ int main(int argc, char ** argv) {
   ssize_t len1 = 0;
   char * curr1 = NULL;
   size_t sz1 = 0;
-  size_t flag_n = 0;
   while ((len1 = getline(&curr1, &sz1, f_story)) >= 0) {
     ParseAndPrintofStep1(curr1, cats, flag_n);
   }
@@ -55,14 +73,16 @@ int main(int argc, char ** argv) {
   free(cats->arr);
   free(cats);
 
-  if (fclose(f_story) != 0) {
+  /* if (fclose(f_story) != 0) {
     perror("Could not close file words");
     return EXIT_FAILURE;
   }
   if (fclose(f_words) != 0) {
     perror("Could not close file story");
     return EXIT_FAILURE;
-  }
+    }*/
+  fclose(f_story);
+  fclose(f_words);
 
   return EXIT_SUCCESS;
 }
