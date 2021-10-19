@@ -1,6 +1,6 @@
-Grading at 10/19/2021:20:37:25.687686
-For commit ID 75b1ab6988c61eca82f50337e150cf86da2703aa
-Grading at Tue Oct 19 16:37:20 EDT 2021
+Grading at 10/19/2021:20:41:10.374048
+For commit ID be6171fb560d339d158537f68f3c9ac347b19502
+Grading at Tue Oct 19 16:41:03 EDT 2021
 Running your test cases
 
 Compiling story-step1
@@ -11,6 +11,13 @@ gcc -o story-step1 story-step1.o rand_story.o provided.o
 rm story-step1.o
 +-----------------------------------------------------------------------+
 Test case story-step1 abc.txt
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case story-step1 test1.txt
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case story-step1 test2.txt
+Once upon a time, there was a cat who lived in a very cat
 Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
 Test case story-step1 story.txt
