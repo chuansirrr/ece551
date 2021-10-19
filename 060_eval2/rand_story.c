@@ -167,6 +167,11 @@ void ParseAndPrintofStep1(char * str1, catarray_t * cats, size_t flag_n) {
 }
 
 void ReadAndStore(char * str, catarray_t * cats) {
+  if (strchr(str, ':') == NULL) {
+    fprintf(stderr, "input file has no colon");
+    exit(EXIT_FAILURE);
+  }
+
   char categ[20];
   size_t countstr = 0;
   while (*(str + countstr) != ':') {
