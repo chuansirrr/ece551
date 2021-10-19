@@ -50,7 +50,7 @@ int main(int argc, char ** argv) {
   while ((len = getline(&curr, &sz, f_words)) >= 0) {
     ReadAndStore(curr, cats);
   }
-  printWords(cats);
+
   free(curr);
 
   ssize_t len1 = 0;
