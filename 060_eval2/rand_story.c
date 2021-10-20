@@ -60,13 +60,13 @@ void ParseAndPrintofStep1(char * str1, catarray_t * cats, size_t flag_n) {
     for (size_t i = 0; i < getcategi; i++) {
       isdig = (isdig && isdigit(getcateg[i]));
     }
+    int iszer = 0;
     if ((getcategi == 1) && (!atoi(getcateg)) && (isdigit(getcateg[0]))) {
-      fprintf(stderr, "category name is 0, fault");
-      exit(EXIT_FAILURE);
+      iszer = 1;
     }
 
     //if the name is not pure digit number
-    if (isdig == 0) {
+    if ((isdig == 0) || (iszer == 1)) {
       const char * cat1 = chooseWord(getcateg, cats);
 
       while (*(cat1 + countcat1) != '\0') {
