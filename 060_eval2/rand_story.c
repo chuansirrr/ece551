@@ -1,5 +1,6 @@
 #include "rand_story.h"
 
+#include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -55,8 +56,11 @@ void ParseAndPrintofStep1(char * str1, catarray_t * cats, size_t flag_n) {
     char cat[20];  //number of characters of word + 1('\0')
     size_t countcat1 = 0;
     char * catcp = cat;
-
-    if (!atoi(getcateg)) {
+    int isdig = 1;
+    for (size_t i = 0; i < getcategi; i++) {
+      isdig = (isdig && isdigit(getcateg[i]));
+    }
+    if (isdig == 0) {
       const char * cat1 = chooseWord(getcateg, cats);
 
       while (*(cat1 + countcat1) != '\0') {
