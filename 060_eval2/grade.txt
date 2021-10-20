@@ -1,6 +1,6 @@
-Grading at 10/20/2021:14:31:37.786578
-For commit ID 65a922d3da7e76fa74ca033ce2f794d807ddd706
-Grading at Wed Oct 20 10:31:28 EDT 2021
+Grading at 10/20/2021:14:37:49.364626
+For commit ID 431671da244c7296b2fb84f6566a241547dde15c
+Grading at Wed Oct 20 10:37:37 EDT 2021
 Running your test cases
 
 Compiling story-step1
@@ -58,9 +58,6 @@ gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c story-step1.c
 gcc -o story-step1 story-step1.o rand_story.o provided.o
 rm story-step1.o
 +-----------------------------------------------------------------------+
-Test case story-step1 test7.txt
-Our story-step1 does not consider this an error case
-+-----------------------------------------------------------------------+
 Test case story-step1 story.txt
 Your file matched the expected output
 
@@ -107,7 +104,27 @@ rm story-step2.o
 Test case story-step2 test4.txt
 Your file matched the expected output
 
-You have FAILED one or more of your test cases
-Keep debugging
+Compiling story-step1
+rm -f *~ story-step1 story-step2 story-step3 story-step4 story-step1.o story-step2.o story-step3.o story-step4.o rand_story.o
+gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c rand_story.c
+gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c story-step1.c
+gcc -o story-step1 story-step1.o rand_story.o provided.o
+rm story-step1.o
++-----------------------------------------------------------------------+
+Test case story-step1 test7.txt
+Your file matched the expected output
+
+Compiling story-step3
+rm -f *~ story-step1 story-step2 story-step3 story-step4 story-step1.o story-step2.o story-step3.o story-step4.o rand_story.o
+gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c rand_story.c
+gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c story-step3.c
+gcc -o story-step3 story-step3.o rand_story.o provided.o
+rm story-step3.o
++-----------------------------------------------------------------------+
+Test case story-step3 words.txt test7.txt
+Your file matched the expected output
+
+You have PASSED all of your test cases
+Keep adding test cases until you are satisfied your program is correct
 
 Overall Grade: NO GRADE YET
