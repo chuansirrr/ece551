@@ -26,7 +26,10 @@ void ParseAndPrintofStep1(char * str1, catarray_t * cats, size_t flag_n) {
 
   size_t CountUsedNum = 0;
   char ** StoreUsedNum = NULL;
-
+  if (place1 == NULL) {
+    printf("%s", str1);
+    return;
+  }
   // in this while, parse,store and print one line of input file
   while ((*place1 != '\0')) {
     char * place2 = strchr(place1 + 1, '_');
