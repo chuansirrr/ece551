@@ -3,6 +3,8 @@ story-step1 abc.txt
 story-step1 test1.txt
 story-step1 test2.txt
 story-step2 test3.txt
+story-step3 words.txt test5.txt
+story-step4 -j words.txt story.txt
 
 #success
 story-step1 story.txt

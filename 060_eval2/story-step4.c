@@ -26,6 +26,10 @@ int main(int argc, char ** argv) {
     }
   }
   else {
+    if (strcmp(argv[1], "-n")) {
+      fprintf(stderr, "the input command argument is not in format\n");
+      return EXIT_FAILURE;
+    }
     flag_n = 1;
     f_words = fopen(argv[2], "r");
     if (f_words == NULL) {

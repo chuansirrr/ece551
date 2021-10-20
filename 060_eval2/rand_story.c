@@ -85,7 +85,7 @@ void ParseAndPrintofStep1(char * str1, catarray_t * cats, size_t flag_n) {
         cats->arr[NumOfCateg].words[NumOfWords] =
             cats->arr[NumOfCateg].words[cats->arr[NumOfCateg].n_words - 1];
         cats->arr[NumOfCateg].words[cats->arr[NumOfCateg].n_words - 1] = NULL;
-        //free(cats->arr[NumOfCateg].words[cats->arr[NumOfCateg].n_words - 1]);
+
         free(miduseChange);
 
         if (cats->arr[NumOfCateg].n_words != 1) {
