@@ -4,9 +4,9 @@
 
 #include <ostream>
 
-IntArray::IntArray() {
+IntArray::IntArray() : data(NULL), numElements(0) {
 }
-IntArray::IntArray(int n) {
+IntArray::IntArray(int n) : data(new int[n]), numElements(n) {
 }
 
 IntArray::IntArray(const IntArray & rhs) :
