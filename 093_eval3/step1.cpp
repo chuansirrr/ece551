@@ -91,7 +91,7 @@ void Page::printresult() {
     std::cout << "Sorry, you have lost. Better luck next time!" << std::endl;
   }
   if (flagofWinorLose == 0) {
-    std::cout << "What would you like to do ?" << std::endl;
+    std::cout << "What would you like to do?" << std::endl;
     std::cout << std::endl;
     std::vector<std::pair<unsigned, std::string> >::iterator it = navigations.begin();
     unsigned i = 1;
