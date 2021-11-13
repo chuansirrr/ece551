@@ -1,0 +1,89 @@
+Grading at 11/13/2021:01:12:09.386824
+For commit ID a855dd9ec98f06ecb0de99ecb437cd698ec87ad7
+Grading at Fri Nov 12 20:11:58 EST 2021
+Checking Step 1 test cases required for extra credit
+
+Compiling cyoa-step1
+rm -f *~ *.o cyoa-step1
+g++ -std=gnu++98 -pedantic -Wall -Werror -ggdb3 -c cyoa-step1.cpp
+g++    -c -o step1.o step1.cpp
+g++ -o cyoa-step1 -ggdb3 cyoa-step1.o step1.o
+Compiled for step 1
++-----------------------------------------------------------------------+
+Test case 1 (success): cyoa-step1 /usr/local/ece551/cyoa/story1/page1.txt
+20c20
+< What would you like to do ?
+---
+> What would you like to do?
+Your file did not match the expected output
++-----------------------------------------------------------------------+
+Test case 2 (success): cyoa-step1 /usr/local/ece551/cyoa/story1/page2.txt
+20c20
+< What would you like to do ?
+---
+> What would you like to do?
+Your file did not match the expected output
++-----------------------------------------------------------------------+
+Test case 3 (success): cyoa-step1 /usr/local/ece551/cyoa/story1/page3.txt
+20c20
+< What would you like to do ?
+---
+> What would you like to do?
+Your file did not match the expected output
++-----------------------------------------------------------------------+
+Test case 4 (success): cyoa-step1 /usr/local/ece551/cyoa/story1/page4.txt
+24c24
+< What would you like to do ?
+---
+> What would you like to do?
+Your file did not match the expected output
++-----------------------------------------------------------------------+
+Test case 5 (success): cyoa-step1 /usr/local/ece551/cyoa/story1/page5.txt
+16c16
+< What would you like to do ?
+---
+> What would you like to do?
+Your file did not match the expected output
++-----------------------------------------------------------------------+
+Test case 6 (success): cyoa-step1 /usr/local/ece551/cyoa/story2/page1.txt
+11c11
+< What would you like to do ?
+---
+> What would you like to do?
+Your file did not match the expected output
++-----------------------------------------------------------------------+
+Test case 7 (success): cyoa-step1 /usr/local/ece551/cyoa/story2/page2.txt
+6c6
+< What would you like to do ?
+---
+> What would you like to do?
+Your file did not match the expected output
++-----------------------------------------------------------------------+
+Test case 8 (success): cyoa-step1 /usr/local/ece551/cyoa/story2/page3.txt
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case 9 (success): cyoa-step1 /usr/local/ece551/cyoa/story2/page4.txt
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case 10 (success): cyoa-step1 /usr/local/ece551/cyoa/story2/page5.txt
+Your file matched the expected output
+Step 1: Failed test cases as above
+
+Compiling cyoa-step2
+rm -f *~ *.o cyoa-step1
+The code did not compile!
+Did not compile for step 2
+
+Compiling cyoa-step3
+rm -f *~ *.o cyoa-step1
+The code did not compile!
+Did not compile for step 3
+
+Compiling cyoa-step4
+rm -f *~ *.o cyoa-step1
+The code did not compile!
+Did not compile for step 4
+Running your test cases
+Cannot proceed without testcases.txt
+
+Overall Grade: NO GRADE YET
