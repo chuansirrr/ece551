@@ -12,4 +12,7 @@ int main(int argc, char ** argv) {
     std::cerr << "invalid num of argc" << std::endl;
     exit(EXIT_FAILURE);
   }
+  Book book;
+  book.ReadPagesFromDir(argv[1]);
+  book.printbook();
 }

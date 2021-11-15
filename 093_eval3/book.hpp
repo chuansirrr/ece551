@@ -9,10 +9,12 @@
 
 class Book {
  private:
-  std::vector<Page> pages;
+  std::vector<std::pair<unsigned int, Page> > pages;
 
  public:
   Book() : pages() {}
   ~Book() {}
   void ReadPagesFromDir(char * Dir);
+
+  void printbook() {}
 };

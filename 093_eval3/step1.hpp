@@ -25,7 +25,7 @@ class Page {
   }
   ~Page() {}
 
-  bool Readfile(char * filenam);
+  bool Readfile(const char * filenam);
   void getNavigations(std::vector<std::string> navigations_cp);
   void getTextOfPage(std::vector<std::string> textOfPage_cp);
   void printresult();

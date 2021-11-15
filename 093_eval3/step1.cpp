@@ -7,13 +7,13 @@
 #include <string>
 #include <vector>
 
-bool Page::Readfile(char * filename) {
+bool Page::Readfile(const char * filename) {
   //store every line of text in the string in vector
   std::ifstream f;
   f.open(filename);
   if (f.fail()) {
     std::cout << "can not open file" << std::endl;
-    exit(EXIT_FAILURE);
+    return false;
   }
 
   std::vector<std::string> allTextLine;
