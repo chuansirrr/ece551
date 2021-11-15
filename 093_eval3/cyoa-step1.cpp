@@ -13,16 +13,10 @@ int main(int argc, char ** argv) {
     exit(EXIT_FAILURE);
   }
   Page page;
-  std::ifstream f;
-  f.open(argv[1]);
-  if (f.fail()) {
-    std::cout << "can not open file" << std::endl;
-    exit(EXIT_FAILURE);
-  }
 
   // read page information
 
-  if (page.Readfile(f) == false) {
+  if (page.Readfile(argv[1]) == false) {
     std::cerr << "cannot open the file" << std::endl;
     exit(EXIT_FAILURE);
   }

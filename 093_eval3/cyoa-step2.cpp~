@@ -1,0 +1,15 @@
+#include <cstdio>
+#include <cstdlib>
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <vector>
+
+#include "book.h"
+
+int main(int argc, char ** argv) {
+  if (argc != 2) {
+    std::cerr << "invalid num of argc" << std::endl;
+    exit(EXIT_FAILURE);
+  }
+}
