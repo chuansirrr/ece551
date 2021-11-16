@@ -8,9 +8,10 @@ class Page {
   std::vector<std::pair<unsigned int, std::string> > navigations;
   std::vector<std::string> textOfPage;
   size_t flagofWinorLose;
+  std::pair<unsigned int, unsigned int> state;
 
  public:
-  Page() : navigations(), textOfPage(), flagofWinorLose(0) {}
+  Page() : navigations(), textOfPage(), flagofWinorLose(0), state(0, 0) {}
   Page(const Page & rhs) :
       navigations(rhs.navigations),
       textOfPage(rhs.textOfPage),

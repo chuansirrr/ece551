@@ -12,7 +12,7 @@ bool Page::Readfile(const char * filename) {
   std::ifstream f;
   f.open(filename);
   if (f.fail()) {
-    std::cout << "can not open file" << std::endl;
+    //    std::cout << "can not open file" << std::endl;
     return false;
   }
 
