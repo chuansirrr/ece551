@@ -31,6 +31,7 @@ void Book::ReadPagesFromDir(char * Dir) {
         break;  //have read all pages
       }
     }
+
     std::pair<unsigned int, Page> onepagecp(numofpage, onepage);
     pages.push_back(onepagecp);
     numofpage++;
@@ -150,7 +151,7 @@ void Book::beginstory() {
       std::cout << "That is not a valid choice, please try again" << std::endl;
       continue;
     }
-    currPageNum = pages[currPageNum].second.navigations[choiceNum - 1].first;
+    currPageNum = pages[currPageNum].second.navigations[choiceNum - 1].first - 1;
     pages[currPageNum].second.printresult();
   }
 }
