@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <fstream>
 #include <iostream>
+#include <stack>
 #include <string>
 #include <vector>
 
@@ -20,6 +21,7 @@ void Book::ReadPagesFromDir(char * Dir) {
     Page onepage;
     if (numofpage == 1) {
       bool value = onepage.Readfile(filefullname);
+      onepage.page_number = numofpage;
       if (value == false) {
         std::cerr << "page1.txt not exist, wrong" << std::endl;
         exit(EXIT_FAILURE);
@@ -27,6 +29,7 @@ void Book::ReadPagesFromDir(char * Dir) {
     }
     else {
       bool value = onepage.Readfile(filefullname);
+      onepage.page_number = numofpage;
       if (value == false) {
         break;  //have read all pages
       }
@@ -180,17 +183,46 @@ void Book::getpagestated() {
   }
 }
 
-void Book::DFS(std::vector<std::pair<unsigned int, Page> > pages,
-               Page page,
-               unsigned int previous_num) {
-  page.state.first = 1;  //mark as visited
-  std::vector<std::pair<unsigned int, std::string> >::iterator it_neighbor =
-      page.navigations.begin();
-  for (; it_neighbor != page.navigations.end(); ++it_neighbor) {
-    unsigned int a = 1;
-    if (pages[(*it_neighbor).first - a].second.state.first == 0) {
-      pages[(*it_neighbor).first - a].second.state.second = previous_num;
-      DFS(pages, pages[(*it_neighbor).first - a].second, (*it_neighbor).first);
+void Book::DFS() {
+  std::stack<Page> stack_page;
+  pages[0].second.state.first = 1;  //mark as visited
+  stack_page.push(pages[0].second);
+  while (!stack_page.empty()) {
+    Page curr = stack_page.top();
+    stack_page.pop();
+
+    std::vector<std::pair<unsigned int, std::string> >::iterator it_neighbor =
+        curr.navigations.begin();
+    if (curr.flagofWinorLose != 0) {
+      continue;
+    }
+    for (; it_neighbor != curr.navigations.end(); ++it_neighbor) {
+      unsigned int a = 1;
+      if (pages[(*it_neighbor).first - a].second.state.first == 0) {
+        pages[(*it_neighbor).first - a].second.state.first = 1;
+        stack_page.push(pages[(*it_neighbor).first - a].second);
+        pages[(*it_neighbor).first - a].second.state.second = curr.page_number;
+      }
+    }
+  }
+}
+
+void Book::printdepth() {
+  DFS();
+  std::vector<std::pair<unsigned int, Page> >::iterator it_page = pages.begin();
+  for (; it_page != pages.end(); ++it_page) {
+    if ((*it_page).second.state.first == 0) {
+      std::cout << "Page " << (*it_page).second.page_number << " is not reachable"
+                << std::endl;
+    }
+    else {
+      size_t i = 0;
+      Page curr_page = (*it_page).second;
+      while (curr_page.page_number != pages[0].second.page_number) {
+        curr_page = pages[curr_page.state.second - 1].second;
+        i++;
+      }
+      std::cout << "Page " << (*it_page).second.page_number << ":" << i << std::endl;
     }
   }
 }

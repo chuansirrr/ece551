@@ -9,18 +9,23 @@ class Page {
   std::vector<std::string> textOfPage;
   size_t flagofWinorLose;
   std::pair<unsigned int, unsigned int> state;
+  size_t page_number;
 
  public:
-  Page() : navigations(), textOfPage(), flagofWinorLose(0), state(0, 0) {}
+  Page() : navigations(), textOfPage(), flagofWinorLose(0), state(0, 0), page_number(0) {}
   Page(const Page & rhs) :
       navigations(rhs.navigations),
       textOfPage(rhs.textOfPage),
-      flagofWinorLose(rhs.flagofWinorLose) {}
+      flagofWinorLose(rhs.flagofWinorLose),
+      state(rhs.state),
+      page_number(rhs.page_number) {}
   Page & operator=(const Page & rhs) {
     if (this != &rhs) {
       navigations = rhs.navigations;
       textOfPage = rhs.textOfPage;
       flagofWinorLose = rhs.flagofWinorLose;
+      state = rhs.state;
+      page_number = rhs.page_number;
     }
     return *this;
   }
