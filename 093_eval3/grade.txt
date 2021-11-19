@@ -1,10 +1,10 @@
-Grading at 11/16/2021:23:23:49.789811
-For commit ID 474cbcd406ccd801e4e12f4837ee084bd650f325
-Grading at Tue Nov 16 18:23:31 EST 2021
+Grading at 11/19/2021:16:59:48.435910
+For commit ID 88b3774004d85a712640456edca18e82337dafee
+Grading at Fri Nov 19 11:59:29 EST 2021
 Checking Step 1 test cases required for extra credit
 
 Compiling cyoa-step1
-rm -f *~ cyoa-step1 cyoa-step2   cyoa-step1.o cyoa-step2.o step1.o book.o
+rm -f *~ cyoa-step1 cyoa-step2  cyoa-step3 cyoa-step1.o cyoa-step2.o cyoa-step3.o step1.o book.o
 g++    -c -o step1.o step1.cpp
 g++    -c -o book.o book.cpp
 g++    -c -o cyoa-step1.o cyoa-step1.cpp
@@ -44,7 +44,7 @@ Your file matched the expected output
 Step 1: PASSED Pre-Grader Test Cases
 
 Compiling cyoa-step2
-rm -f *~ cyoa-step1 cyoa-step2   cyoa-step1.o cyoa-step2.o step1.o book.o
+rm -f *~ cyoa-step1 cyoa-step2  cyoa-step3 cyoa-step1.o cyoa-step2.o cyoa-step3.o step1.o book.o
 g++    -c -o step1.o step1.cpp
 g++    -c -o book.o book.cpp
 g++    -c -o cyoa-step2.o cyoa-step2.cpp
@@ -84,18 +84,22 @@ Your file matched the expected output
 Step 2: PASSED Pre-Grader Test Cases
 
 Compiling cyoa-step3
-rm -f *~ cyoa-step1 cyoa-step2   cyoa-step1.o cyoa-step2.o step1.o book.o
+rm -f *~ cyoa-step1 cyoa-step2  cyoa-step3 cyoa-step1.o cyoa-step2.o cyoa-step3.o step1.o book.o
 g++    -c -o step1.o step1.cpp
 g++    -c -o book.o book.cpp
 g++    -c -o cyoa-step3.o cyoa-step3.cpp
 g++ -o cyoa-step3 cyoa-step3.o step1.o book.o
-Makefile:6: recipe for target 'cyoa-step3' failed
 rm cyoa-step3.o
-The code did not compile!
-Did not compile for step 3
++-----------------------------------------------------------------------+
+Test case 15 (success): cyoa-step3 /usr/local/ece551/cyoa/story1
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case 16 (success): cyoa-step3 /usr/local/ece551/cyoa/story2
+Your file matched the expected output
+Step 3: PASSED Pre-Grader Test Cases
 
 Compiling cyoa-step4
-rm -f *~ cyoa-step1 cyoa-step2   cyoa-step1.o cyoa-step2.o step1.o book.o
+rm -f *~ cyoa-step1 cyoa-step2  cyoa-step3 cyoa-step1.o cyoa-step2.o cyoa-step3.o step1.o book.o
 The code did not compile!
 Did not compile for step 4
 Running your test cases
