@@ -148,31 +148,6 @@ void Book::beginstory() {
     pages[currPageNum].second.printresult();
   }
 }
-/*
-void Book::getpagestated() {
-  pages[0].second.state.first = 1;
-
-  std::vector<std::pair<unsigned int, Page> >::iterator it_page = pages.begin();
-  for (; it_page != pages.end(); ++it_page) {
-    if ((*it_page).second.flagofWinorLose != 0) {
-      continue;
-    }
-    else {
-      std::vector<std::pair<unsigned int, std::string> >::iterator it_naviga =
-          (*it_page).second.navigations.begin();
-      for (; it_naviga != (*it_page).second.navigations.end(); ++it_naviga) {
-        if (pages[(*it_naviga).first - 1].second.state.first == 0) {
-          pages[(*it_naviga).first - 1].second.state.first = 1;
-          pages[(*it_naviga).first - 1].second.state.second = (*it_page).first;
-        }
-        else {
-          continue;
-        }
-      }
-    }
-  }
-}
-*/
 
 //use DFS to find the depth of every page
 void Book::DFS() {

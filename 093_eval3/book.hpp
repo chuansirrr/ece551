@@ -20,7 +20,6 @@ class Book {
   void ReadPagesFromDir(char * Dir);
   void verifyConditions();
   void beginstory();
-  // void getpagestated();
   void printdepth();
   void DFS();
   void DFS_for_step4();
