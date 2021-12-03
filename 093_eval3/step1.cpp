@@ -81,6 +81,7 @@ void Page::getNavigations(std::vector<std::string> navigations_cp) {
     }
     init_navigat.push_back(std::pair<unsigned int, std::string>(num, textOfChoice));
     ++it;
+    navigations_all_flag.push_back(0);
   }
   navigations = init_navigat;
 }

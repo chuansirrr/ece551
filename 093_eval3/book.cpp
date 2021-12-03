@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <fstream>
 #include <iostream>
+#include <queue>
 #include <stack>
 #include <string>
 #include <vector>
@@ -207,6 +208,84 @@ void Book::DFS() {
   }
 }
 
+void Book::BFS() {
+  //create an empty queue
+  std::stack<std::vector<unsigned int> > stack_page;
+  pages[0].second.state.first = 1;  //visited
+  std::vector<unsigned int> startnum;
+  startnum.push_back(1);
+  stack_page.push(startnum);
+  unsigned int a = 1;
+  while (!stack_page.empty()) {
+    std::vector<unsigned int> curr = stack_page.top();
+    stack_page.pop();
+
+    std::vector<std::pair<unsigned int, std::string> >::iterator it_neighbor =
+        pages[curr.back() - a].second.navigations.begin();
+    if (pages[curr.back() - a].second.flagofWinorLose != 0) {
+      successstories.push_back(curr);
+      continue;
+    }
+
+    for (; it_neighbor != pages[curr.back() - a].second.navigations.end();
+         ++it_neighbor) {
+      //unsigned int a = 1;
+      if (compareRepeart(curr, (*it_neighbor).first)) {
+        std::vector<unsigned int> temp_curr = curr;
+        temp_curr.push_back((*it_neighbor).first);
+        stack_page.push(temp_curr);
+      }
+    }
+  }
+}
+
+bool Book::compareRepeart(std::vector<unsigned int> storyline,
+                          unsigned int addedpagenum) {
+  std::vector<unsigned int>::iterator it_line = storyline.begin();
+  for (; it_line != storyline.end(); ++it_line) {
+    if (addedpagenum == *it_line) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+void Book::printsuccessstory() {
+  std::vector<std::vector<unsigned int> >::iterator it_compl_story =
+      successstories.begin();
+  unsigned int flag_win = 0;
+  unsigned int a = 1;
+  for (; it_compl_story != successstories.end(); ++it_compl_story) {
+    if (pages[(*it_compl_story).back() - a].second.flagofWinorLose == 1) {
+      flag_win = 1;
+      std::vector<unsigned int>::iterator it_win = (*it_compl_story).begin();
+      while (pages[(*it_win) - a].second.flagofWinorLose == 0) {
+        unsigned int i = 1;
+
+        std::vector<unsigned int>::iterator it_wincp = it_win;
+        it_wincp++;
+        std::vector<std::pair<unsigned int, std::string> >::iterator it_neighbor =
+            pages[(*it_win) - a].second.navigations.begin();
+        for (; it_neighbor != pages[(*it_win) - a].second.navigations.end();
+             it_neighbor++) {
+          if ((*it_wincp) == (*it_neighbor).first) {
+            break;
+          }
+          else {
+            i++;
+          }
+        }
+        std::cout << *(it_win) << "(" << i << "),";
+        it_win++;
+      }
+      std::cout << *(it_win) << "(win)" << std::endl;
+    }
+  }
+  if (flag_win == 0) {
+    std::cout << "This story is unwinnable!" << std::endl;
+  }
+}
 void Book::printdepth() {
   DFS();
   std::vector<std::pair<unsigned int, Page> >::iterator it_page = pages.begin();
