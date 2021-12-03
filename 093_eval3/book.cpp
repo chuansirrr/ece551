@@ -8,7 +8,7 @@
 #include <stack>
 #include <string>
 #include <vector>
-
+//from the directory read the pages and store all of them in the book
 void Book::ReadPagesFromDir(char * Dir) {
   size_t numofpage = 1;
   while (true) {
@@ -41,7 +41,7 @@ void Book::ReadPagesFromDir(char * Dir) {
     numofpage++;
   }
 }
-
+//verify the three conditions of the pages
 void Book::verifyConditions() {
   //every page that is referenced by a choice is valid
   std::vector<unsigned int> reference_num;  //store the num of reference
@@ -114,7 +114,7 @@ void Book::verifyConditions() {
     exit(EXIT_FAILURE);
   }
 }
-
+//begin the story from page1.txt and let the customer choose their own path
 void Book::beginstory() {
   pages[0].second.printresult();
   size_t currPageNum = 0;
@@ -125,6 +125,7 @@ void Book::beginstory() {
     std::string s;
     std::getline(std::cin, s);
     size_t flag_valid = 0;
+    //judge whether the input is valid number
     for (size_t i = 0; i < s.length(); i++) {
       if (s[i] < 48 || s[i] > 57) {
         flag_valid = 1;
@@ -147,7 +148,7 @@ void Book::beginstory() {
     pages[currPageNum].second.printresult();
   }
 }
-
+/*
 void Book::getpagestated() {
   pages[0].second.state.first = 1;
 
@@ -171,7 +172,9 @@ void Book::getpagestated() {
     }
   }
 }
+*/
 
+//use DFS to find the depth of every page
 void Book::DFS() {
   std::stack<Page> stack_page;
   pages[0].second.state.first = 1;  //mark as visited
@@ -195,7 +198,7 @@ void Book::DFS() {
     }
   }
 }
-
+//change the DFS and use stack::vector to get all the WIN path
 void Book::DFS_for_step4() {
   //create an empty queue
   std::stack<std::vector<unsigned int> > stack_page;
@@ -226,7 +229,7 @@ void Book::DFS_for_step4() {
     }
   }
 }
-
+//check if there exist a cirle on the path
 bool Book::compareRepeart(std::vector<unsigned int> storyline,
                           unsigned int addedpagenum) {
   std::vector<unsigned int>::iterator it_line = storyline.begin();
@@ -238,7 +241,7 @@ bool Book::compareRepeart(std::vector<unsigned int> storyline,
 
   return true;
 }
-
+//print the WIN path
 void Book::printsuccessstory() {
   std::vector<std::vector<unsigned int> >::iterator it_compl_story =
       successstories.begin();
@@ -274,6 +277,7 @@ void Book::printsuccessstory() {
     std::cout << "This story is unwinnable!" << std::endl;
   }
 }
+//print the depth of every page
 void Book::printdepth() {
   DFS();
   std::vector<std::pair<unsigned int, Page> >::iterator it_page = pages.begin();

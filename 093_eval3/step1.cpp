@@ -51,7 +51,7 @@ bool Page::Readfile(const char * filename) {
   f.close();
   return true;
 }
-
+//store lines of navigations part into one page
 void Page::getNavigations(std::vector<std::string> navigations_cp) {
   std::string number;
   unsigned int num;
@@ -62,9 +62,11 @@ void Page::getNavigations(std::vector<std::string> navigations_cp) {
     if (((navigations_cp)[0] == "WIN" || (navigations_cp)[0] == "LOSE") &&
         navigations_cp.size() == 1) {
       num = 0;
+      //if the page is WIN page, then the flag is 1
       if ((navigations_cp)[0] == "WIN") {
         flagofWinorLose = 1;
       }
+      //if the page is WIN page, then the flag is 2
       if ((navigations_cp)[0] == "LOSE") {
         flagofWinorLose = 2;
       }
@@ -86,6 +88,7 @@ void Page::getNavigations(std::vector<std::string> navigations_cp) {
   navigations = init_navigat;
 }
 
+//print every page correctlly
 void Page::printresult() {
   std::vector<std::string>::iterator it = textOfPage.begin();
   while (it != textOfPage.end()) {
@@ -111,7 +114,7 @@ void Page::printresult() {
     }
   }
 }
-
+//get page number part of the navigations part, and store in one page with pair of the corresponding text after it
 std::string Page::getnumber(std::string textline) {
   int index = textline.find(':');
   if (index == -1) {
@@ -129,16 +132,15 @@ std::string Page::getnumber(std::string textline) {
     exit(EXIT_FAILURE);
   }
   std::string number(textline.substr(0, index + 1));
-  //std::string textOfChoice(textline.substr(++index));
   return number;
 }
-
+//get the text in navigations after ":" and store it in one page
 std::string Page::getText(std::string textline) {
   size_t index = textline.find_first_of(':');
   std::string textOfChoice(textline.substr(++index));
   return textOfChoice;
 }
-
+//get the text downside the "hash" and store in one page
 void Page::getTextOfPage(std::vector<std::string> textOfPage_cp) {
   textOfPage = textOfPage_cp;
 }
