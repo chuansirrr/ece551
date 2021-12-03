@@ -10,8 +10,9 @@
 
 class Book {
  private:
-  std::vector<std::pair<unsigned int, Page> > pages;
-  std::vector<std::vector<unsigned int> > successstories;
+  std::vector<std::pair<unsigned int, Page> > pages;  //store all the pages
+  std::vector<std::vector<unsigned int> >
+      successstories;  //store all the path from page1 to WIN or LOSE
 
  public:
   Book() : pages(), successstories() {}
@@ -22,8 +23,7 @@ class Book {
   void getpagestated();
   void printdepth();
   void DFS();
-  void BFS();
-  Page returnnext(Page node);
+  void DFS_for_step4();
   bool compareRepeart(std::vector<unsigned int> storyline, unsigned int addedpagenum);
   void printsuccessstory();
 };

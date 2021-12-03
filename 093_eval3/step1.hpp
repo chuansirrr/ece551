@@ -5,13 +5,14 @@
 
 class Page {
  public:
-  std::vector<std::pair<unsigned int, std::string> > navigations;
+  std::vector<std::pair<unsigned int, std::string> >
+      navigations;  //store the numbers and texts after each number of navigations
   std::vector<unsigned int> navigations_all_flag;
-  std::vector<std::string> textOfPage;
-  size_t flagofWinorLose;
+  std::vector<std::string> textOfPage;  //store the text under "hash"
+  size_t flagofWinorLose;  //if it is 1, then the page is WIN, 2 is LOSE, 0 otherwise
   std::pair<unsigned int, unsigned int>
-      state;  //In BFS, first is dist, second is previous
-  size_t page_number;
+      state;           //In DFS, the first is visited, the second is previous number
+  size_t page_number;  //the page's number
 
  public:
   Page() :

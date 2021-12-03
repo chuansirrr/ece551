@@ -15,9 +15,7 @@ int main(int argc, char ** argv) {
   Book book;
   book.ReadPagesFromDir(argv[1]);
   book.verifyConditions();
-  //book.beginstory();
-  //  book.getpagestated();
-  book.BFS();
+  book.DFS_for_step4();
   book.printsuccessstory();
   return EXIT_SUCCESS;
 }

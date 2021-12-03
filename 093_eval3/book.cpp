@@ -138,19 +138,7 @@ void Book::beginstory() {
     if (choiceNum > pages[currPageNum].second.navigations.size()) {
       flag_valid = 1;
     }
-    /*
-    std::vector<std::pair<unsigned int, std::string> >::iterator it_navi =
-        pages[currPageNum].second.navigations.begin();
-    size_t accum_notequal = 0;
-    for (; it_navi != pages[currPageNum].second.navigations.end(); ++it_navi) {
-      if ((*it_navi).first != choiceNum) {
-        accum_notequal++;
-      }
-    }
-    if (accum_notequal == pages[currPageNum].second.navigations.size()) {
-      flag_valid = 1;
-    }
-    */
+
     if (flag_valid) {
       std::cout << "That is not a valid choice, please try again" << std::endl;
       continue;
@@ -208,7 +196,7 @@ void Book::DFS() {
   }
 }
 
-void Book::BFS() {
+void Book::DFS_for_step4() {
   //create an empty queue
   std::stack<std::vector<unsigned int> > stack_page;
   pages[0].second.state.first = 1;  //visited
