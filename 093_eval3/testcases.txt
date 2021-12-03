@@ -9,3 +9,6 @@ cyoa-step3 story1
 cyoa-step4 story1
 cyoa-step4 story3
 cyoa-step4 story4
+cyoa-step4 story5
+cyoa-step3 story5
+cyoa-step2 story5 < test1/input3.txt
