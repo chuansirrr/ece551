@@ -1,6 +1,6 @@
-Grading at 12/03/2021:18:44:00.350076
-For commit ID be8aabd47fddfaddf91b22bd14c6dadfe0cec42c
-Grading at Fri Dec  3 13:43:11 EST 2021
+Grading at 12/03/2021:19:18:30.522657
+For commit ID 99418ab3c56cdb10a05f0eb2b0607541f7caa78d
+Grading at Fri Dec  3 14:17:35 EST 2021
 Checking Step 1 test cases required for extra credit
 
 Compiling cyoa-step1
@@ -184,6 +184,31 @@ Test case 7 (success): cyoa-step4 story3
 Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case 8 (success): cyoa-step4 story4
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case 9 (success): cyoa-step4 story5
+Your file matched the expected output
+
+Compiling cyoa-step3
+rm -f *~ cyoa-step1 cyoa-step2  cyoa-step3 cyoa-step4 cyoa-step1.o cyoa-step2.o cyoa-step3.o cyoa-step4.o step1.o book.o
+g++    -c -o step1.o step1.cpp
+g++    -c -o book.o book.cpp
+g++    -c -o cyoa-step3.o cyoa-step3.cpp
+g++ -o cyoa-step3 cyoa-step3.o step1.o book.o
+rm cyoa-step3.o
++-----------------------------------------------------------------------+
+Test case 10 (success): cyoa-step3 story5
+Your file matched the expected output
+
+Compiling cyoa-step2
+rm -f *~ cyoa-step1 cyoa-step2  cyoa-step3 cyoa-step4 cyoa-step1.o cyoa-step2.o cyoa-step3.o cyoa-step4.o step1.o book.o
+g++    -c -o step1.o step1.cpp
+g++    -c -o book.o book.cpp
+g++    -c -o cyoa-step2.o cyoa-step2.cpp
+g++ -o cyoa-step2 cyoa-step2.o step1.o book.o
+rm cyoa-step2.o
++-----------------------------------------------------------------------+
+Test case 11 (success): cyoa-step2 story5 < test1/input3.txt
 Your file matched the expected output
 
 You have PASSED all of your test cases
